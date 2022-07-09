@@ -17,9 +17,7 @@ include 'header.php';
 	<div class="container-fluid py-5">
 
 		<h1 class="display-5 fw-bold">Library Management System</h1>
-
-
-		
+	
 	</div>
 
 </div>
