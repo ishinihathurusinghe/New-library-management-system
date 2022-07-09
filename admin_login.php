@@ -1,6 +1,6 @@
 <?php
 
-//admin_login.php
+
 
 
 include 'database_connection.php';
