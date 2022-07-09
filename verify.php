@@ -58,6 +58,6 @@ if(isset($_GET['code']))
 	}
 }
 
-include 'footer.php';
+include 'footer.php'
 
 ?>
