@@ -1,6 +1,6 @@
 <?php
 
-//verify.php
+
 
 include 'database_connection.php';
 
