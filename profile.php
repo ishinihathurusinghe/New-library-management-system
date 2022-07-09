@@ -1,6 +1,6 @@
 <?php
 
-//profile.php
+
 
 include 'database_connection.php';
 
