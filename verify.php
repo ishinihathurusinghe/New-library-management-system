@@ -2,7 +2,7 @@
 
 
 
-include 'database_connection.php';
+*/include 'database_connection.php';
 
 include 'function.php';
 
@@ -59,5 +59,6 @@ if(isset($_GET['code']))
 }
 
 include 'footer.php';
+*/
 
 ?>
