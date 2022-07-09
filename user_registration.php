@@ -1,16 +1,12 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
 include 'database_connection.php';
 
 include 'function.php';
 
 if(is_user_login())
 {
-	header('location:issue_book_details.php');
+	header('location:user_login.php');
 }
 
 $message = '';
@@ -143,7 +139,7 @@ if(isset($_POST["register_button"]))
 		}
 		else
 		{
-			$user_verificaton_code = md5(uniqid());
+			
 
 			$user_unique_id = 'U' . rand(10000000,99999999);
 
@@ -154,7 +150,6 @@ if(isset($_POST["register_button"]))
 				':user_profile'			=>	$formdata['user_profile'],
 				':user_email_address'	=>	$formdata['user_email_address'],
 				':user_password'		=>	$formdata['user_password'],
-				':user_verificaton_code'=>	$user_verificaton_code,
 				':user_verification_status'	=>	'No',
 				':user_unique_id'		=>	$user_unique_id,
 				':user_status'			=>	'Enable',
@@ -163,51 +158,17 @@ if(isset($_POST["register_button"]))
 
 			$query = "
 			INSERT INTO lms_user 
-            (user_name, user_address, user_contact_no, user_profile, user_email_address, user_password, user_verificaton_code, user_verification_status, user_unique_id, user_status, user_created_on) 
-            VALUES (:user_name, :user_address, :user_contact_no, :user_profile, :user_email_address, :user_password, :user_verificaton_code, :user_verification_status, :user_unique_id, :user_status, :user_created_on)
+            (user_name, user_address, user_contact_no, user_profile, user_email_address, user_password,  user_verification_status, user_unique_id, user_status, user_created_on) 
+            VALUES (:user_name, :user_address, :user_contact_no, :user_profile, :user_email_address, :user_password,  :user_verification_status, :user_unique_id, :user_status, :user_created_on)
 			";
 
 			$statement = $connect->prepare($query);
 
 			$statement->execute($data);
 
-			require 'vendor/autoload.php';
+			
 
-			$mail = new PHPMailer(true);
-
-			$mail->isSMTP();
-
-			$mail->Host = 'smtp.gmail.com';  //Here you have to define GMail SMTP
-
-			$mail->SMTPAuth = true;
-
-			$mail->Username = 'xxxx';  //Here you can use your Gmail Email Address
-
-			$mail->Password = 'xxxx';  //Here you can use your Gmail Address Password
-
-			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-
-			$mail->Port = 80;
-
-			$mail->setFrom('tutorial@webslesson.info', 'Webslesson');
-
-			$mail->addAddress($formdata['user_email_address'], $formdata['user_name']);
-
-			$mail->isHTML(true);
-
-			$mail->Subject = 'Registration Verification for Library Management System';
-
-			$mail->Body = '
-			 <p>Thank you for registering for Library Management System Demo & your Unique ID is <b>'.$user_unique_id.'</b> which will be used for issue book.</p>
-
-                <p>This is a verification email, please click the link to verify your email address.</p>
-                <p><a href="'.base_url().'verify.php?code='.$user_verificaton_code.'">Click to Verify</a></p>
-                <p>Thank you...</p>
-			';
-
-			$mail->send();
-
-			$success = 'Verification Email sent to ' . $formdata['user_email_address'] . ', so before login first verify your email';
+			$success = 'Your Registration is Completed.';
 		}
 
 	}
@@ -265,6 +226,10 @@ include 'header.php';
 					</div>
 					<div class="text-center mt-4 mb-2">
 						<input type="submit" name="register_button" class="btn btn-primary" value="Register" />
+					</div>
+
+					<div class="mb-3">
+                                                   <a href="user_login.php"> Already have an account</a>
 					</div>
 				</form>
 			</div>
