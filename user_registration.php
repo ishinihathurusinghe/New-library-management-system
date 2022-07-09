@@ -1,6 +1,6 @@
 <?php
 
-//user_registration.php
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
