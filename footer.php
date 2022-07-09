@@ -1,8 +1,7 @@
-                <?php
+               <?php
                 if(is_admin_login())
                 {
                 ?>
-
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -26,6 +25,24 @@
                 <footer class="pt-3 mt-4 text-muted text-center border-top">
                     &copy; <?php echo date('Y'); ?>
                 </footer>
+
+
+
+                <div class="footer">
+    <div class="card text-center">
+        <div class="card-footer text-muted">
+            &copy; &nbspDEVELOPED BY : <a href="https://github.com/ishinihathurusinghe" target="_blank" style="text-decoration: none;">Ishini Hathurusinghe</a> || 2022 May
+        </div>
+    </div>
+</div>
+
+    <p style="color:white;text-align: center;">
+		<br>
+		
+		Mobile:&nbsp &nbsp 076 750 7263
+	</p>
+
+
             </div>
         </main>
                 <?php 
