@@ -1,6 +1,6 @@
 <?php
 
-//function.php
+
 
 function base_url()
 {
