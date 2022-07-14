@@ -1,5 +1,4 @@
 <?php
-
 function base_url()
 {
 	return 'http://localhost/tutorial/library_management_system/';
